@@ -4,7 +4,7 @@ import { BookingType, HotelSearchResponse } from "../shared/types";
 import { validationResult } from "express-validator";
 import Stripe from 'stripe';
 
-const stripe = new Stripe('sk_test_51PoEdMP2u5AGM58seYLuGpvD0bbF3oFrBbM8ZmXk8r4I79POpo1yZLbLg4rokXItC6QCBsVXxyLnzktb7G6sVIsr00nGH8lbO4');
+const stripe = new Stripe(process.env.STRIPE_API_KEY as string);
 
 export const searchHotelController = async (req:Request, res:Response) => {
     try {
